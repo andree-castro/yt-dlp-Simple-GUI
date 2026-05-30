@@ -4,11 +4,11 @@ import subprocess
 import os
 import sys
 
-# carpeta del script
+
 base_dir = os.path.dirname(os.path.abspath(__file__))
 yt_dlp_path = os.path.join(base_dir, "yt-dlp.exe")
 
-# función primero (porque la usaremos después)
+
 def download_audio():
     url = entry.get().strip()
     if not url:
@@ -54,12 +54,12 @@ def create_ui():
     root.mainloop()
 
 
-# 🚨 VALIDACIÓN ANTES DE TODO
+
 if getattr(sys, 'frozen', False):
-    # ejecutándose como .exe
+
     base_dir = os.path.dirname(sys.executable)
 else:
-    # ejecutándose como .py
+
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
 yt_dlp_path = os.path.join(base_dir, "yt-dlp.exe")
@@ -68,6 +68,6 @@ if not os.path.isfile(yt_dlp_path):
         "Error",
         f"No se encontró yt-dlp.exe en:\n{base_dir}"
     )
-    sys.exit()  # cierre limpio antes de abrir UI
+    sys.exit()
 else:
     create_ui()
